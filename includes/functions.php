@@ -294,13 +294,13 @@ function get_name ($id, $template, $locale = 3)
   switch ($template)
   {
     case 'quest':
-      $get_name_sql = "SELECT q.{$field['q_title']}, l.Title_loc3 as Title_loc FROM `dev_pve_world`.`quest_template` q LEFT JOIN (`dev_pve_world`.`locales_quest` l) ON l.{$field['qloc_id']}=q.{$field['q_id']} WHERE q.`{$field['q_id']}` = '{$id}'";
+      $get_name_sql = "SELECT q.{$field['q_title']}, l.Title_loc3 as Title_loc FROM `{$world_db}`.`quest_template` q LEFT JOIN (`{$world_db}`.`locales_quest` l) ON l.{$field['qloc_id']}=q.{$field['q_id']} WHERE q.`{$field['q_id']}` = '{$id}'";
       break;
     case 'creature':
-      $get_name_sql = "SELECT c.{$field['c_name']}, l.name_loc3 as l_name FROM `dev_pve_world`.`creature_template` c LEFT JOIN (`dev_pve_world`.`locales_creature` l) ON l.{$field['cloc_id']}=c.{$field['c_id']} WHERE c.`{$field['c_id']}` = '{$id}'";
+      $get_name_sql = "SELECT c.{$field['c_name']}, l.name_loc3 as l_name FROM `{$world_db}`.`creature_template` c LEFT JOIN (`{$world_db}`.`locales_creature` l) ON l.{$field['cloc_id']}=c.{$field['c_id']} WHERE c.`{$field['c_id']}` = '{$id}'";
       break;
     case 'gameobject':
-     $get_name_sql = "SELECT g.{$field['g_name']}, l.name_loc3 as l_name FROM `dev_pve_world`.`gameobject_template` g LEFT JOIN (`dev_pve_world`.`locales_gameobject` l) ON l.{$field['gloc_id']}=g.{$field['g_id']} WHERE g.`{$field['g_id']}` = '{$id}'";
+     $get_name_sql = "SELECT g.{$field['g_name']}, l.name_loc3 as l_name FROM `{$world_db}`.`gameobject_template` g LEFT JOIN (`{$world_db}`.`locales_gameobject` l) ON l.{$field['gloc_id']}=g.{$field['g_id']} WHERE g.`{$field['g_id']}` = '{$id}'";
      break;
   }
   
@@ -604,7 +604,7 @@ function load_locale($data = false)
      
     $l_parts = rtrim($l_parts,', ');
 
-    $get_locale_sql = "SELECT {$l_parts} FROM `dev_pve_world`.`{$table}` WHERE `{$field["{$data['which']}loc_id"]}` = '{$data["{$data['which']}loc_id"]}'";
+    $get_locale_sql = "SELECT {$l_parts} FROM `{$world_db}`.`{$table}` WHERE `{$field["{$data['which']}loc_id"]}` = '{$data["{$data['which']}loc_id"]}'";
 
     if (!empty($data["{$data['which']}loc_id"]) && !empty($get_locale_sql))
       $get_locale = $db->QuerySingleRowArray($get_locale_sql, MYSQL_ASSOC );
@@ -620,7 +620,7 @@ function get_next_id($id, $tpl)
 {
   global $db;
 
-  $get_id_sql = "SELECT `{$id}` FROM `dev_pve_world`.`{$tpl}` ORDER BY `{$id}` DESC LIMIT 0, 1";
+  $get_id_sql = "SELECT `{$id}` FROM `{$world_db}`.`{$tpl}` ORDER BY `{$id}` DESC LIMIT 0, 1";
   $get_id = $db->QuerySingleValue($get_id_sql);
 
   $n_id = $get_id+1;

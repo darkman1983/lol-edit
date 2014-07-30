@@ -22,8 +22,8 @@ class loot
     $result   = array();
     $desc     = array();
     $refs     = array();
-    $load_sql = "SELECT * FROM `dev_pve_world`.`%s` WHERE entry = %s OR mincountOrRef LIKE '%s'";
-    $ref_sq   = "SELECT * FROM `dev_pve_world`.`reference_loot_template` WHERE `entry` = %s";
+    $load_sql = "SELECT * FROM `{$world_db}`.`%s` WHERE entry = %s OR mincountOrRef LIKE '%s'";
+    $ref_sq   = "SELECT * FROM `{$world_db}`.`reference_loot_template` WHERE `entry` = %s";
 
     if (isset($data['type']) && $data['type'] == 'all')
     {

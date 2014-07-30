@@ -57,9 +57,9 @@ class quest
                 break;
             }
             if (!$is_item)
-              $sql_parts .= " q.`{$field['q_id']}` IN (SELECT `quest` FROM `dev_pve_world`.`{$qgiver_table}` WHERE `id` = {$real_value})";
+              $sql_parts .= " q.`{$field['q_id']}` IN (SELECT `quest` FROM `{$world_db}`.`{$qgiver_table}` WHERE `id` = {$real_value})";
             else
-              $sql_parts .= " q.`{$field['q_id']}` IN (SELECT `startquest` FROM `dev_pve_world`.`{$qgiver_table}` WHERE `entry` = {$real_value})";
+              $sql_parts .= " q.`{$field['q_id']}` IN (SELECT `startquest` FROM `{$world_db}`.`{$qgiver_table}` WHERE `entry` = {$real_value})";
             break;
           case 's_questfinisher':
             $real_value = substr($value, 1);
@@ -75,7 +75,7 @@ class quest
                 $qinvolve_table = 'creature_questender';
                 break;
             }
-            $sql_parts .= " q.`{$field['q_id']}` IN (SELECT `quest` FROM `dev_pve_world`.`{$qinvolve_table}` WHERE `id` = {$real_value})";
+            $sql_parts .= " q.`{$field['q_id']}` IN (SELECT `quest` FROM `{$world_db}`.`{$qinvolve_table}` WHERE `id` = {$real_value})";
             break;
           case 'q_prev':
             $sql_parts .= " q.`{$field['q_prev']}`  = {$value}";
@@ -98,7 +98,7 @@ class quest
     if (empty($sql_parts))
       show_template('info', array('error' => "Du musst etwas zum Suchen Eingeben!", 'error_ajax' => true), 'default/error.tpl');
 
-    $get_quests_sql = "SELECT q.{$field['q_id']}, q.{$field['q_title']}, l.Title_loc3 as Title_loc FROM `dev_pve_world`.`quest_template` q LEFT JOIN (`dev_pve_world`.`locales_quest` l) ON l.{$field['qloc_id']}=q.{$field['q_id']}{$sql_parts} LIMIT 0, 200";
+    $get_quests_sql = "SELECT q.{$field['q_id']}, q.{$field['q_title']}, l.Title_loc3 as Title_loc FROM `{$world_db}`.`quest_template` q LEFT JOIN (`{$world_db}`.`locales_quest` l) ON l.{$field['qloc_id']}=q.{$field['q_id']}{$sql_parts} LIMIT 0, 200";
     $get_quests = $db->QueryArray( $get_quests_sql, MYSQL_ASSOC );
 
     if (!$get_quests)
@@ -118,7 +118,7 @@ class quest
   {
     global $db, $field;
 
-    $get_quest_sql = "SELECT * FROM `dev_pve_world`.`quest_template` WHERE `{$field['q_id']}` = '{$data['qselected']}'";
+    $get_quest_sql = "SELECT * FROM `{$world_db}`.`quest_template` WHERE `{$field['q_id']}` = '{$data['qselected']}'";
 
     switch ($data['tpl'])
     {

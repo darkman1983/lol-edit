@@ -64,7 +64,7 @@ class gameobject
         if (empty($sql_parts))
             show_template('info', array('error' => "Du musst etwas zum Suchen Eingeben!", 'error_ajax' => true), 'default/error.tpl');
 
-        $get_tpl_datas_sql = "SELECT g.{$field['g_id']}, g.{$field['g_name']}, l.{$field['gloc_name3']}, g.{$field['g_typ']} as gtype, (SELECT `name` FROM `loledit`.`gameobject_type` WHERE `type` = gtype) as {$field['g_typ']}, g.{$field['g_fac']} FROM `dev_pve_world`.`gameobject_template` g LEFT JOIN (`dev_pve_world`.`locales_gameobject` l) ON l.entry=g.{$field['g_id']}{$sql_parts} LIMIT 0, 200";
+        $get_tpl_datas_sql = "SELECT g.{$field['g_id']}, g.{$field['g_name']}, l.{$field['gloc_name3']}, g.{$field['g_typ']} as gtype, (SELECT `name` FROM `loledit`.`gameobject_type` WHERE `type` = gtype) as {$field['g_typ']}, g.{$field['g_fac']} FROM `{$world_db}`.`gameobject_template` g LEFT JOIN (`{$world_db}`.`locales_gameobject` l) ON l.entry=g.{$field['g_id']}{$sql_parts} LIMIT 0, 200";
         $get_tpl_datas = $db->QueryArray($get_tpl_datas_sql, MYSQL_ASSOC);
 
         if (!$get_tpl_datas)
@@ -85,7 +85,7 @@ class gameobject
         global $db, $field;
 
 
-        $get_tpl_sql = "SELECT * FROM `dev_pve_world`.`%s` WHERE `%s` = '{$data['gselected']}'";
+        $get_tpl_sql = "SELECT * FROM `{$world_db}`.`%s` WHERE `%s` = '{$data['gselected']}'";
         $template = '';
 
         switch ($data['tpl']) {

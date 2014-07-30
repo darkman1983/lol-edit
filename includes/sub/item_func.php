@@ -20,7 +20,7 @@ function item_search($data)
   
   $sql_parts = empty($sql_parts) ? ' ORDER BY RAND()' : $sql_parts;
 
-  $get_sql = "SELECT t.{$field['i_id']} as id, t.{$field['i_name']} as iname, l.{$field['iloc_name3']} as iname_loc FROM `dev_pve_world`.`item_template` t LEFT JOIN (`dev_pve_world`.`locales_item` l) ON l.{$field['iloc_id']}=t.{$field['i_id']}{$sql_parts} LIMIT 0, 200";
+  $get_sql = "SELECT t.{$field['i_id']} as id, t.{$field['i_name']} as iname, l.{$field['iloc_name3']} as iname_loc FROM `{$world_db}`.`item_template` t LEFT JOIN (`{$world_db}`.`locales_item` l) ON l.{$field['iloc_id']}=t.{$field['i_id']}{$sql_parts} LIMIT 0, 200";
 
   $get = $db->QueryArray($get_sql, MYSQL_ASSOC);
   if (!$get)

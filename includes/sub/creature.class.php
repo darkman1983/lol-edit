@@ -60,7 +60,7 @@ class creature
         if (empty($sql_parts))
             show_template('info', array('error' => "Du musst etwas zum Suchen Eingeben!", 'error_ajax' => true), 'default/error.tpl');
 
-        $get_tpl_datas_sql = "SELECT c.{$field['c_id']}, c.{$field['c_name']}, l.{$field['cloc_name3']}, c.{$field['c_subn']}, l.{$field['cloc_subn3']}, c.{$field['c_flag']}, c.{$field['c_milvl']}, c.{$field['c_malvl']} FROM `dev_pve_world`.`creature_template` c LEFT JOIN (`dev_pve_world`.`locales_creature` l) ON l.entry=c.{$field['c_id']}{$sql_parts} LIMIT 0, 200";
+        $get_tpl_datas_sql = "SELECT c.{$field['c_id']}, c.{$field['c_name']}, l.{$field['cloc_name3']}, c.{$field['c_subn']}, l.{$field['cloc_subn3']}, c.{$field['c_flag']}, c.{$field['c_milvl']}, c.{$field['c_malvl']} FROM `{$world_db}`.`creature_template` c LEFT JOIN (`{$world_db}`.`locales_creature` l) ON l.entry=c.{$field['c_id']}{$sql_parts} LIMIT 0, 200";
 
         $get_tpl_datas = $db->QueryArray($get_tpl_datas_sql, MYSQL_ASSOC);
 
@@ -81,7 +81,7 @@ class creature
     {
         global $db, $field;
 
-        $get_tpl_sql = "SELECT * FROM `dev_pve_world`.`%s` WHERE `%s` = '{$data['cselected']}'";
+        $get_tpl_sql = "SELECT * FROM `{$world_db}`.`%s` WHERE `%s` = '{$data['cselected']}'";
         $template = '';
 
         switch ($data['tpl']) {
@@ -102,7 +102,7 @@ class creature
                 self::creature_onkill_reputation($db->QueryArray($get_tpl_sql, MYSQL_ASSOC), true);
                 break;
             case 'model_info':
-                $get_tpl_sql = "SELECT * FROM `dev_pve_world`.`creature_model_info` WHERE `{$field['cmi_id']}` =(SELECT `{$field['c_m_id1']}` FROM `dev_pve_world`.`creature_template` WHERE entry = '{$data['cselected']}') OR `{$field['cmi_id']}` =(SELECT `{$field['c_m_id2']}` FROM `dev_pve_world`.`creature_template` WHERE entry = '{$data['cselected']}') OR `{$field['cmi_id']}` =(SELECT `{$field['c_m_id3']}` FROM `dev_pve_world`.`creature_template` WHERE entry = '{$data['cselected']}') OR `{$field['cmi_id']}` =(SELECT `{$field['c_m_id4']}` FROM `dev_pve_world`.`creature_template` WHERE `{$field['c_id']}` = '{$data['cselected']}')";
+                $get_tpl_sql = "SELECT * FROM `{$world_db}`.`creature_model_info` WHERE `{$field['cmi_id']}` =(SELECT `{$field['c_m_id1']}` FROM `{$world_db}`.`creature_template` WHERE entry = '{$data['cselected']}') OR `{$field['cmi_id']}` =(SELECT `{$field['c_m_id2']}` FROM `{$world_db}`.`creature_template` WHERE entry = '{$data['cselected']}') OR `{$field['cmi_id']}` =(SELECT `{$field['c_m_id3']}` FROM `{$world_db}`.`creature_template` WHERE entry = '{$data['cselected']}') OR `{$field['cmi_id']}` =(SELECT `{$field['c_m_id4']}` FROM `{$world_db}`.`creature_template` WHERE `{$field['c_id']}` = '{$data['cselected']}')";
                 self::creature_model_info($db->QueryArray($get_tpl_sql, MYSQL_ASSOC), true);
                 break;
             default:

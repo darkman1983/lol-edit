@@ -89,7 +89,7 @@ class dbfield_assign
     if (empty($field_template))
       return false;
 
-    $got_fields_def = "`dev_pve_world`.`{$field_template}`";
+    $got_fields_def = "`{$world_db}`.`{$field_template}`";
     $got_fields = $this->db->GetColumnNames($got_fields_def);
 
     if (!$got_fields)

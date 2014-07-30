@@ -44,7 +44,7 @@ class quest_gifi
     if (empty($tables))
       show_template('info', array('error' => "Fehler: Tabellen wurden nicht gefunden!", 'error_ajax' => true), 'default/error.tpl');
 
-    $get_sql = "SELECT t.entry as id, t.name, l.name_loc3 as lname FROM `dev_pve_world`.`{$tables[0]}` t LEFT JOIN (`dev_pve_world`.`{$tables[1]}` l) ON l.entry=t.entry{$sql_parts} LIMIT 0, 200";
+    $get_sql = "SELECT t.entry as id, t.name, l.name_loc3 as lname FROM `{$world_db}`.`{$tables[0]}` t LEFT JOIN (`{$world_db}`.`{$tables[1]}` l) ON l.entry=t.entry{$sql_parts} LIMIT 0, 200";
     $template = 'default/dialogs/dialog_' .(($data['gifi'] == 'gi') ? 'questgiver' : 'questfinisher').'_result.tpl';
 
     $get = $db->QueryArray($get_sql, MYSQL_ASSOC);
@@ -66,8 +66,8 @@ class quest_gifi
   {
     global $db;
 
-    $sql = "SELECT t.entry as id, t.name, l.name_loc3 as lname FROM `dev_pve_world`.`%s` t LEFT JOIN (`dev_pve_world`.`%s` l) ON l.entry=t.entry";
-    $sql_where = " WHERE t.entry IN (SELECT `id` FROM `dev_pve_world`.`%s` WHERE `quest` = '%s')";
+    $sql = "SELECT t.entry as id, t.name, l.name_loc3 as lname FROM `{$world_db}`.`%s` t LEFT JOIN (`{$world_db}`.`%s` l) ON l.entry=t.entry";
+    $sql_where = " WHERE t.entry IN (SELECT `id` FROM `{$world_db}`.`%s` WHERE `quest` = '%s')";
     $sql_where2 = " WHERE `startquest` = '%s'";
     $type = '';
     $q_gifi_res = array();
@@ -143,7 +143,7 @@ class quest_gifi
   {
     global $db;
 
-    $sql = "SELECT t.entry as id, t.name, l.name_loc3 as lname FROM `dev_pve_world`.`%s` t LEFT JOIN (`dev_pve_world`.`%s` l) ON l.entry=t.entry";
+    $sql = "SELECT t.entry as id, t.name, l.name_loc3 as lname FROM `{$world_db}`.`%s` t LEFT JOIN (`{$world_db}`.`%s` l) ON l.entry=t.entry";
     $sql_where = " WHERE t.entry = '%s'";
     $type = '';
     $q_gifi_res = array();

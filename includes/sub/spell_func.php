@@ -24,7 +24,7 @@ function spell_search($data)
   if (empty($tables))
     show_template('info', array('error' => "Fehler: Tabellen wurden nicht gefunden!", 'error_ajax' => true), 'default/error.tpl');
 
-  $get_sql = "SELECT * FROM `dev_pve_world`.`{$tables[0]}` t LEFT JOIN (`dev_pve_world`.`{$tables[1]}` l) ON l.entry=t.entry{$sql_parts} LIMIT 0, 200";
+  $get_sql = "SELECT * FROM `{$world_db}`.`{$tables[0]}` t LEFT JOIN (`{$world_db}`.`{$tables[1]}` l) ON l.entry=t.entry{$sql_parts} LIMIT 0, 200";
   $template = 'default/dialogs/dialog_' .(($data['gifi'] == 'gi') ? 'questgiver' : 'questfinisher').'_result.tpl';
 
   $get = $db->QueryArray($get_sql, MYSQL_ASSOC);

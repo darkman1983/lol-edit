@@ -1,0 +1,1 @@
+{if isset($data.str)}{$data.str}{/if}

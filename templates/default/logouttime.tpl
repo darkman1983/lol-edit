@@ -1,0 +1,1 @@
+{if isset($info.alogout)}{$info.alogout}{else}Zeit abgelaufen!{/if}

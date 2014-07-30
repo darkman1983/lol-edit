@@ -1,0 +1,260 @@
+html{
+height: 100%;
+border: 0;
+padding: 0px;
+margin: 0px;
+}
+
+body {
+	background-color: #DDDDDD;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	height: 100%;
+	padding: 0px;
+	margin: 0px;
+	overflow: hidden;
+}
+input[type=text] {
+	border: 1px solid #ccc;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	-moz-box-shadow: 2px 2px 3px #666;
+	-webkit-box-shadow: 2px 2px 3px #666;
+	box-shadow: 2px 2px 3px #666;
+	font-size: 12px;
+	padding: 4px 7px;
+	outline: 0;
+	-webkit-appearance: none;
+}
+input[type=text]:focus {
+	border-color: #339933;
+}
+input[type=password] {
+	border: 1px solid #ccc;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	-moz-box-shadow: 2px 2px 3px #666;
+	-webkit-box-shadow: 2px 2px 3px #666;
+	box-shadow: 2px 2px 3px #666;
+	font-size: 12px;
+	padding: 4px 7px;
+	outline: 0;
+	-webkit-appearance: none;
+}
+input[type=password]:focus {
+	border-color: #339933;
+}
+textarea {
+	border: 1px solid #ccc;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	-moz-box-shadow: 2px 2px 3px #666;
+	-webkit-box-shadow: 2px 2px 3px #666;
+	box-shadow: 2px 2px 3px #666;
+	font-size: 15px;
+	padding: 4px 7px;
+	outline: 0;
+	-webkit-appearance: none;
+}
+textarea:focus {
+	border-color: #339933;
+}
+.page_content {
+	height: 97%;
+	overflow: auto;
+}
+.footer {
+	font-size: 12px;
+	position: fixed;
+	width: 100%;
+	height: 20px;
+	padding: 0px;
+	margin: 0px;
+}
+.valign-middle {
+	vertical-align:middle;
+}
+.textfield {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	background-color: #DDDDDD;
+	border: 1px solid black;
+	color: #000000;
+}
+fieldset {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	border: 1px solid black;
+}
+img.center { 
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.c-button {
+	background-color:#DDDDDD;
+	border: 1px solid black;
+}
+.c-button:hover {
+	background-color:#d2dddd;
+}
+.article_div {
+	position:relative;
+	width:100%;
+	height:200px;
+	background-color:#DDDDDD;
+	overflow:auto;
+	border: 1px solid black;
+}
+.textfield_col {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+	background-color: #0099FF;
+	border: 1px solid #F37E31;
+}
+a:link {
+	color: #000000;
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+	color: #000000;
+}
+a:hover {
+	text-decoration: underline;
+	color: #000000;
+}
+a:active {
+	text-decoration: none;
+	color: #000000;
+}
+.justification { text-align: justify; }
+.topper { 
+	vertical-align: top;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.article_width { width: 120px; }
+.del_width { width: 50px; }
+.search_a {
+    background: url("/templates/default/images/search.png") no-repeat scroll left top transparent;
+    display: block;
+    height: 22px;
+    position: absolute;
+    right: 5px;
+    top: 4px;
+    width: 21px;
+    z-index: 1;
+}
+.search_a2 {
+	position: absolute;
+	right: 40px;
+	}
+.search_div {
+    position: relative;
+    display: block;
+}
+.base_button {
+	border: 0;
+	text-indent: -1000em;
+    cursor: pointer; /* hand-shaped cursor */
+    cursor: hand; /* for IE 5.x */
+	z-index: 1;
+}
+.search_button {
+	background: url("/templates/default/images/find.png") no-repeat scroll left top transparent;
+	background-size: 100%;
+	height: 32px;
+	width: 32px;
+}
+.reset_button {
+	background: url("/templates/default/images/reset.png") no-repeat scroll left top transparent;
+	background-size: 100%;
+	height: 32px;
+	width: 32px;
+}
+.add_lang_button {
+	background: url("/templates/default/images/lang.png") no-repeat scroll left top transparent;
+	background-size: 100%;
+	height: 32px;
+	width: 32px;
+}
+.new_button {
+	background: url("/templates/default/images/new.png") no-repeat scroll left top transparent;
+	background-size: 100%;
+	height: 32px;
+	width: 32px;
+}
+.edit_button {
+	background: url("/templates/default/images/edit.png") no-repeat scroll left top transparent;
+	background-size: 100%;
+	height: 32px;
+	width: 32px;
+}
+.del_button {
+	background: url("/templates/default/images/del.png") no-repeat scroll left top transparent;
+	background-size: 100%;
+	height: 32px;
+	width: 32px;
+}
+.save_button {
+	background: url("/templates/default/images/save.png") no-repeat scroll left top transparent;
+	background-size: 100%;
+	height: 32px;
+	width: 32px;
+}
+input {
+	height: 22px;
+}
+.dialog {
+	width: 100%;
+	height: 380px;
+	overflow: inherit;
+}
+.dialog_container {
+  z-index: 2;
+  background-color: #DDDDDD;
+  border: 1px solid black;
+  display: none;
+  width: 500px;
+  height: 514px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -250px;
+  margin-left: -257px;
+}
+.dialog_dragger {
+	background-color: black;
+	color: white;
+	cursor: default;
+	font-size: 15px;
+	width: 100%;
+	height: 20px; 
+}
+.dialog_dragger a:hover {
+	color: lightgrey;
+	cursor: default;
+	text-decoration: none;
+}
+.autologout {
+	background-color: lightgrey;
+	position:fixed;
+	right: 40px;
+	top: 0px;
+}
+.user_sessions {
+	background-color: lightgrey;
+	position:fixed;
+	right: 340px;
+	top: 0px;
+}
+.white_content_div {
+	background-color: white;
+	border: 1px solid black;
+	width: 1024px;
+	overflow : auto;
+}

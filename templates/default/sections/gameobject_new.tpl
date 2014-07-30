@@ -1,0 +1,1 @@
+<input type="text" name="g_id" id="g_id" value="{$data.next_id}" />

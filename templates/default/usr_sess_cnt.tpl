@@ -1,0 +1,1 @@
+{if isset($info.usr_sess)}{$info.usr_sess}{/if}

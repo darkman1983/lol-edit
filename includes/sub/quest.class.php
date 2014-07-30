@@ -11,7 +11,7 @@ class quest
 {
   public static function quest_search($data = false)
   {
-    global $db, $smarty, $field;
+    global $db, $smarty, $field, $world_db;
 
     if (empty($data))
       show_template('info', array('error' => "Fehler: Keine Daten übergeben, Eingaben Überprüfen!", 'error_ajax' => true), 'default/error.tpl');

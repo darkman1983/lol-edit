@@ -13,6 +13,8 @@ include("includes/functions.php");
 include("template.php");
 include("includes/injection_secure.php");
 
+$world_db = get_world();
+
 $mode = isset ( $_GET ['mode'] ) ? $_GET ['mode'] : false;
 
 $smarty->assign('info');

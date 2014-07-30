@@ -10,7 +10,7 @@ class creature
 {
     public static function creature_search($data = false)
     {
-        global $db, $field;
+        global $db, $field, $world_db;
 
         if (empty($data))
             show_template('info', array('error' => "Fehler: Keine Daten übergeben, Eingaben Überprüfen!", 'error_ajax' => true), 'default/error.tpl');
@@ -79,7 +79,7 @@ class creature
 
     public static function creature_load($data = false)
     {
-        global $db, $field;
+        global $db, $field, $world_db;
 
         $get_tpl_sql = "SELECT * FROM `{$world_db}`.`%s` WHERE `%s` = '{$data['cselected']}'";
         $template = '';

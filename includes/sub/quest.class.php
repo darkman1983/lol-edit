@@ -116,7 +116,7 @@ class quest
 
   public static function quest_load($data = false)
   {
-    global $db, $field;
+    global $db, $field, $world_db;
 
     $get_quest_sql = "SELECT * FROM `{$world_db}`.`quest_template` WHERE `{$field['q_id']}` = '{$data['qselected']}'";
 

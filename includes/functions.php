@@ -7,6 +7,15 @@ if (!defined('IN_LOLEDIT'))
   exit;
 }
 
+function get_world()
+{
+	global $path;
+	
+	include("{$path}/configs/config_db.php");
+	
+	return $db_world;
+}
+
 /**
  * @param $search
  * @param $arr
@@ -289,7 +298,7 @@ function get_dialog($data = false, $ret_array = false)
 
 function get_name ($id, $template, $locale = 3)
 {
-  global $db, $field;
+  global $db, $field, $world_db;
 
   switch ($template)
   {
@@ -516,7 +525,7 @@ function generate_pagination ( $base_url, $num_items, $per_page, $start_item, $a
 
 function load_locale($data = false)
 {
-  global $db, $field;
+  global $db, $field, $world_db;
 
   if (empty($data['locale']) || empty($data['which']))
     show_template('info', array('error' => "Fehler: Sprache oder Tabelle leer!", 'error_ajax' => true), 'default/error.tpl');

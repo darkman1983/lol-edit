@@ -10,7 +10,7 @@ class gameobject
 {
     public static function gameobject_search($data = false)
     {
-        global $db, $field;
+        global $db, $field, $world_db;
 
         if (empty($data))
             show_template('info', array('error' => "Fehler: Keine Daten übergeben, Eingaben Überprüfen!", 'error_ajax' => true), 'default/error.tpl');
@@ -82,7 +82,7 @@ class gameobject
 
     public static function gameobject_load($data = false)
     {
-        global $db, $field;
+        global $db, $field, $world_db;
 
 
         $get_tpl_sql = "SELECT * FROM `{$world_db}`.`%s` WHERE `%s` = '{$data['gselected']}'";

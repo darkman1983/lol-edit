@@ -12,7 +12,7 @@ class quest_sql
 {
   public static function gen_sql($data)
   {
-    global $db, $field;
+    global $db, $field, $world_db;
 
     $sql = '';
 

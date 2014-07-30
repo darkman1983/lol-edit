@@ -9,7 +9,7 @@ if (!defined('IN_LOLEDIT'))
 
 function item_search($data)
 {
-  global $db, $field;
+  global $db, $field, $world_db;
 
   $sql_parts = ' WHERE';
   if (!empty($data['sitem_id']))

@@ -251,8 +251,6 @@ $('q_src_item_id_a').observe('click', function(e) {
             });
 
 //Tooltips
-new Tagtip('q_rew_xp_id', 'Die ID\'s gehen von 2-11<br>Je höher der Wert, desto mehr XP!<br>Beispiele:<p>2 = Immer 0<br>3 = "Sprich mit X", sehr einfache Quests<br>4 = "Sprich mit X" oder "Bringe zu X" mit einer durchschnittlichen Laufdistanz<br>5 = "Sprich mit X" normalerweise außerhalb der Zone des Questgebers<br>6 = Normale Quest "Töte X" mit unter 10<br>7 = Normale Quest "Töte X" mit über 10<br>8 = Elite Quest, normalerweise wird eine Gruppe benötigt<br>9 = Normale Quest mit guter XP Belohnung, z.B. beim Abschluss einer Questreihe oder Gruppenquest<br>10 = Raid Quests</p>', {
-   align: 'bottomRight' 
-});
+new Opentip("#q_rew_xp_id", 'Die ID\'s gehen von 2-11<br>Je höher der Wert, desto mehr XP!<br>Beispiele:<p>2 = Immer 0<br>3 = "Sprich mit X", sehr einfache Quests<br>4 = "Sprich mit X" oder "Bringe zu X" mit einer durchschnittlichen Laufdistanz<br>5 = "Sprich mit X" normalerweise außerhalb der Zone des Questgebers<br>6 = Normale Quest "Töte X" mit unter 10<br>7 = Normale Quest "Töte X" mit über 10<br>8 = Elite Quest, normalerweise wird eine Gruppe benötigt<br>9 = Normale Quest mit guter XP Belohnung, z.B. beim Abschluss einer Questreihe oder Gruppenquest<br>10 = Raid Quests</p>', {target: true, tipJoint: "top"});
 {/literal}
 </script>

@@ -677,17 +677,9 @@ $('q_rew_title_id_a').observe('click', function(e) {
             });
             
 //Tooltips
-new Tagtip('q_method', 'Zulässige Werte:<br>0 = Automatisch Abgeschlossen<br>1 = Deaktiviert<br>2 = Aktiviert', {
-   align: 'topRight' 
-});
-new Tagtip('q_rew_mail_tpl_id', 'ID aus der <b>quest_mail_loot_template</b> Tabelle für Items, die der Spieler Wählen kann und die per Post an den Spieler gesendet werden.', {
-   align: 'topRight' 
-});
-new Tagtip('q_sug_play', 'Anzahl der mindestens empfohlenen Spieler für diese Quest. Wird vor Questannahme angezeigt.', {
-   align: 'topRight' 
-});
-new Tagtip('q_rew_mon_xp', 'Ein positiver Wert ist der Wert, den man bei Questabschluss bekommt. Ein negativer Wert ist der Wert, den man für das Starten der Quest braucht.', {
-   align: 'topRight' 
-});
+new Opentip("#q_method", "Zulässige Werte:<br>0 = Automatisch Abgeschlossen<br>1 = Deaktiviert<br>2 = Aktiviert", {target: true, tipJoint: "top"});
+new Opentip("#q_rew_mail_tpl_id", "ID aus der <b>quest_mail_loot_template</b> Tabelle für Items, die der Spieler Wählen kann und die per Post an den Spieler gesendet werden.", {target: true, tipJoint: "top"});
+new Opentip("#q_sug_play", "Anzahl der mindestens empfohlenen Spieler für diese Quest. Wird vor Questannahme angezeigt.", {target: true, tipJoint: "top"});
+new Opentip("#q_rew_mon_xp", "Ein positiver Wert ist der Wert, den man bei Questabschluss bekommt. Ein negativer Wert ist der Wert, den man für das Starten der Quest braucht.", {target: true, tipJoint: "top"});
 {/literal}
 </script>

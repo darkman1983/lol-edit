@@ -71,8 +71,6 @@ $('c_tadd_del').observe('click', function(e) {
             });
             
 //Tooltips
-//new Tagtip('cta_id', 'Die Equipment ID muss in Verbindung mit der Gruppen ID einzigartig sein.', {
-//   align: 'bottomRight'
-//});
+new Opentip("#cta_id", "Die Equipment ID muss in Verbindung mit der Gruppen ID einzigartig sein.", {target: true, tipJoint: "top"});
 {/literal}
 </script>

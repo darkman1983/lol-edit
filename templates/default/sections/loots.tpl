@@ -85,8 +85,6 @@ $('lo_add_del').observe('click', function(e) {
             });
             
 //Tooltips
-//new Tagtip('lo_id', 'Die Equipment ID muss in Verbindung mit der Gruppen ID einzigartig sein.', {
-//   align: 'bottomRight'
-//});
+new Opentip("#lo_id", "Die Equipment ID muss in Verbindung mit der Gruppen ID einzigartig sein.", {target: true, tipJoint: "top"});
 {/literal}
 </script>

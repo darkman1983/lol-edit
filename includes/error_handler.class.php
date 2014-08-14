@@ -28,7 +28,7 @@ class error_handler
     $this->ip              = $ip;
     $this->show_user       = $show_user;
     $this->show_developer  = $show_developer;
-    $this->email           = mysql_real_escape_string($email);
+    $this->email           = $email; //mysql_real_escape_string($email);
     $this->log_file        = $log_file;
     $this->log_message     = NULL;
     $this->email_sent      = false;

@@ -427,10 +427,6 @@ function generate_sql($data)
   }
 }
 
-function isJson($var) {
-  return ((is_string($var) && (is_object(json_decode($var)) || is_array(json_decode($var))))) ? true : false;
-}
-
 function replace_db_field_content()
 {
   global $db;

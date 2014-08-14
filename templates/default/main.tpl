@@ -2,11 +2,11 @@
 <div class="tabber" id="root_tab">
   <div class="tabbertab">
     <h2><a name="tab1">Übersicht</a></h2>
-    <p align="center">Willkommen im LoL-Datenbank Editor {$info.fullname}.<br>
-    Hier gibt es bald allerhand zu Entdecken und zu Tuen xD<br>
+    <p align="center">{$lang.welcome} {$info.fullname}.<br>
+    {$lang.welcome_2}<br>
     {if !empty($info.no_db_assign)}
     <br>
-    Leider konnten aus folgenden Datenbank Tabellen einige Felder nicht zugeordnet werden.
+    {$lang.err_db_table_fields}
     <table>
     <tr>
     <td>Template</td>

@@ -7,11 +7,33 @@ define ( 'IN_LOLEDIT', true );
 $path   = realpath(dirname(__FILE__));
 $date_f = date("d-m-Y");
 
+// Default language
+$DEFAULT_LANGUAGE = 'en';
+// Languages directory
+$LANGUAGE_DIR = 'language';
+
+// Initialize the Classloader
 include("includes/classloader.php");
+
+//Initialize error handler as first
+$handler = new error_handler("127.0.0.1",0,14,NULL,"{$path}/logs/error_log-{$date_f}.log");
+set_error_handler(array(&$handler, "handler"));
+
+//Start Session as second and before language
+$session = new session();
+
+// Connect to Database
 include("includes/db_connect.php");
+
+// Make all $_POST & $_GET injection secured
+include("includes/injection_secure.php");
+
+// Initialze language before functions
+$language = new language();
+$lang = $language->getLanguage(@$_POST['lang']);
+
 include("includes/functions.php");
 include("template.php");
-include("includes/injection_secure.php");
 
 $world_db = get_world();
 
@@ -19,13 +41,8 @@ $mode = isset ( $_GET ['mode'] ) ? $_GET ['mode'] : false;
 
 $smarty->assign('info');
 $smarty->assign('data');
+$smarty->assign('lang', $lang);
 
-//Initialise Error Handler
-$handler = new error_handler("127.0.0.1",0,14,NULL,"{$path}/logs/error_log-{$date_f}.log");
-set_error_handler(array(&$handler, "handler"));
-
-//Start Session
-$session = new session();
 $logged_in = $session->auth (array_merge($_GET, $_POST));
 
 //Load field associations into template engine

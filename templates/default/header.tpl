@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 {if isset($info.refresh)}<meta http-equiv="refresh" content="0; URL=index">{/if}
-<title>LoL-DB-Editor</title>
+<title>{$lang.title}</title>
 <link href="templates/default/css/loledit.css" rel="stylesheet" type="text/css" />
 <link href="templates/default/css/tabber.css" rel="stylesheet" type="text/css" />
 <link href="templates/default/css/opentip.css" rel="stylesheet" type="text/css" />
@@ -165,8 +165,8 @@ var quest, creature, object, item, gen_sql;
 <body{if isset($info.logouttime)} onload="new Ajax.Updater('log_content', '/index?mode=load_log&id={$info.id}', {literal}{method: 'get'}{/literal});"{/if}>
 <div class="page_content">
 {if isset($info.logouttime)}
-<div class="autologout">Automatischer logout bei Inaktivität: <span id="autologout">{$info.logouttime}</span></div>
-<div class="user_sessions">Aktuell eingeloggte Benutzer: <span id="usr_sess">{$info.usr_sess}</span></div>
+<div class="autologout">{$lang.logouttime}: <span id="autologout">{$info.logouttime}</span></div>
+<div class="user_sessions">{$lang.sessions}: <span id="usr_sess">{$info.usr_sess}</span></div>
 {/if}
 <div id="dialog_container" class="dialog_container">
 <div id="dialog_dragger" class="dialog_dragger" align="right"><a onClick="$$('div.dialog_container').invoke('setStyle', { display: 'none', width: '500px', height: '514px' });">X&nbsp;</a></div>

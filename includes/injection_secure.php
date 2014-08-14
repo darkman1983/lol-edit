@@ -8,6 +8,10 @@ if (!defined('IN_LOLEDIT'))
   exit;
 }
 
+function isJson($var) {
+	return ((is_string($var) && (is_object(json_decode($var)) || is_array(json_decode($var))))) ? true : false;
+}
+
 //SQL Injection Absicherung
 if ($db && $_POST) {
   if (is_array ( $_POST ))
